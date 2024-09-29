@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
 export default function UsersPage() {
 
@@ -42,8 +43,8 @@ export default function UsersPage() {
                     isLoading
                     ? <tr>
                         <td>
-                            <div class="spinner-border" role="status">
-                            <span class="visually-hidden">Loading...</span>
+                            <div className="spinner-border" role="status">
+                            <span className="visually-hidden">Loading...</span>
                             </div>
                         </td>
                     </tr>
@@ -55,7 +56,9 @@ export default function UsersPage() {
                                 <td>{user.id}</td>
                                 <td>{user.name}</td>
                                 <td>{user.email}</td>
-                                <td></td>
+                                <td>
+                                    <Link to={`/users/${user.id}`} className='btn btn-success'>View</Link>
+                                </td>
                             </tr>
                         )
                     })
